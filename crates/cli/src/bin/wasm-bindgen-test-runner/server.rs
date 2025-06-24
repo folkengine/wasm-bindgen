@@ -365,7 +365,7 @@ pub(crate) fn spawn(
         // write in the code that *don't* have file extensions (aka we say `from
         // 'foo'` instead of `from 'foo.js'`. Fixup those paths here to see if a
         // `js` file exists.
-        if let Some(part) = request.url().split('/').last() {
+        if let Some(part) = request.url().split('/').next_back() {
             if !part.contains('.') {
                 let new_request = Request::fake_http(
                     request.method(),
