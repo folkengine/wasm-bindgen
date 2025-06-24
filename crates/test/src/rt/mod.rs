@@ -600,7 +600,7 @@ impl Future for ExecuteTests {
 
         // Tests are still executing, we're registered to get a notification,
         // keep going.
-        if ! running.is_empty() {
+        if !running.is_empty() {
             return Poll::Pending;
         }
 
@@ -653,7 +653,7 @@ impl State {
 
     fn print_results(&self) {
         let failures = self.failures.borrow();
-        if ! failures.is_empty() {
+        if !failures.is_empty() {
             self.formatter.writeln("\nfailures:\n");
             for (test, failure) in failures.iter() {
                 self.print_failure(test, failure);
